@@ -16,8 +16,7 @@
 }
 body {
     width: 100%;
-    height: 100vh;
-    background-color: #222;
+    height: 100%;
 }
 ul li{
 list-style: none;
@@ -29,21 +28,17 @@ a{
     color: black;
 }
 .page{
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    align-content: center;
-    flex-direction: column;
     position: relative;
     width: 100%;
     height: 100%;
+    overflow: hidden;
     &:after{
         content: "";
         position: absolute;
         top: 0;
         left: 0;
         width: 100%;
-        height: 100%;
+        height: 100vh;
         background: rgba(0, 0, 0, 0.400);
         z-index: 0;
     }
@@ -175,24 +170,22 @@ a{
     }
     video{
         position: relative;
-        @include Centreabsolute;
+        position: absolute;
         width: 100%;
-        height: 100%;
+        height: 100vh;
         object-fit: cover;
     }
     .container{
-        @include FlexMid(row);
+        @include FlexMid(column);
         width: 100%;
-        height: 100%;
+        height: 100vh;
         .p-title{
             @include FlexMid(row);
             position: relative;
-            z-index: 2;
-            @include FlexMid(row);
             font-size: 7vw;
             font-weight: 700; 
-            font-family: arial;
             color: white;
+            z-index: 2;
             .dot{
                 @include FlexMid(row);
                 .dot1{
@@ -216,24 +209,174 @@ a{
                 }
             }
         }
-        /*
-        .sec-text{
-            &:before{
-                content: "";
+    }
+    .container2{
+        @include FlexMid(column);
+        position: relative;
+        width: 100%;
+        height: 100vh;
+        background: black;
+        overflow: hidden;
+        &:before{
+            content: "";
+            position: absolute;
+            top: 0px;
+            width: 100%;
+            height: 30vh;
+            background-image: linear-gradient(#222, black);
+            overflow: hidden;
+        }
+        .blur-filter{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            backdrop-filter: blur(10px);
+        }
+        .blur{
+            div {
                 position: absolute;
-                top: 0;
-                left: 0;
-                height: 100%;
                 width: 100%;
-                background: black;
-                border-left: 2px solid #4070F4;
-                animation: animate 4s steps(12) infinite;
-                z-index: 1;
+                height: 100%;
+                border-radius: 50%;
+                //animation: PositionAbsolute 1s infinite;
+                transition: 1s all;
+                &:nth-child(1) {
+                    filter: blur(0px);
+                }
+                &:nth-child(2) {
+                    filter: blur(30px);
+                }
+                &:nth-child(3) {
+                    filter: blur(60px);
+                }
+                &:nth-child(4) {
+                    filter: blur(90px);
+                }
+                &:nth-child(5) {
+                    filter: blur(120px);
+                }
+            }
+            &:nth-child(2) {
+                //could've remove the div{} to ajust the background color but is no needed since .blur take the whole bubble
+                div{
+                    background: #FDB813;
+                }
+            }
+            &:nth-child(3) {
+                div{
+                    background: #e5e5e5;
+                }
+            }
+            &:nth-child(4) {
+                div{
+                    background: #8B7D82;
+                }
+            }
+            &:nth-child(5) {
+                div{
+                    background: #0d7167;
+                }
+            }
+            &:nth-child(6) {
+                div{
+                    background: #a1251b;
+                }
+            }
+            &:nth-child(7) {
+                div{
+                    background: #bcafb2;
+                }
+            }
+            &:nth-child(8) {
+                div{
+                    background: #ead6b8;
+                }
+            }
+            &:nth-child(9) {
+                div{
+                    background: turquoise;
+                }
+            }
+            &:nth-child(10) {
+                div{
+                    background: blue;
+                }
             }
         }
-        */
+        .bubble1{
+            position: absolute;
+            top: auto;
+            right: -100px;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+        }
+        .bubble2{
+            position: absolute;
+            top: auto;
+            right: 20vw;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+        }
+        .bubble3{
+            position: absolute;
+            top: auto;
+            right: 30vw;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+        }
+        .bubble4{
+            position: absolute;
+            top: auto;
+            right: 40vw;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+        }
+        .bubble5{
+            position: absolute;
+            top: auto;
+            right: 50vw;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+        }
+        .bubble6{
+            position: absolute;
+            top: auto;
+            right: 60vw;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+        }
+        .bubble7{
+            position: absolute;
+            top: auto;
+            right: 70vw;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+        }
+        .bubble8{
+            position: absolute;
+            top: auto;
+            right: 80vw;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+        }
+        .bubble9{
+            position: absolute;
+            top: auto;
+            right: 90vw;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+        }
     }
-
 
 
 
@@ -274,6 +417,82 @@ a{
                 } 
             }
         }
+        .container2{
+            height: 170vh;
+            .bubble1{
+                position: absolute;
+                top: -100px;
+                right: auto;
+                width: 300px;
+                height: 300px;
+                border-radius: 50%;
+            }
+            .bubble2{
+                position: absolute;
+                top: 230px;
+                right: auto;
+                width: 80px;
+                height: 80px;
+                border-radius: 50%;
+            }
+            .bubble3{
+                position: absolute;
+                top: 330px;
+                right: auto;
+                width: 100px;
+                height: 100px;
+                border-radius: 50%;
+            }
+            .bubble4{
+                position: absolute;
+                top: 430px;
+                right: auto;
+                width: 100px;
+                height: 100px;
+                border-radius: 50%;
+            }
+            .bubble5{
+                position: absolute;
+                top: 530px;
+                right: auto;
+                width: 100px;
+                height: 100px;
+                border-radius: 50%;
+            }
+            .bubble6{
+                position: absolute;
+                top: 630px;
+                right: auto;
+                width: 100px;
+                height: 100px;
+                border-radius: 50%;
+            }
+            .bubble7{
+                position: absolute;
+                top: 730px;
+                right: auto;
+                width: 100px;
+                height: 100px;
+                border-radius: 50%;
+            }
+            .bubble8{
+                position: absolute;
+                top: 830px;
+                right: auto;
+                width: 100px;
+                height: 100px;
+                border-radius: 50%;
+            }
+            .bubble9{
+                position: absolute;
+                top: 930px;
+                right: auto;
+                width: 100px;
+                height: 100px;
+                border-radius: 50%;
+            }
+        }
+
     }
 
     //phones

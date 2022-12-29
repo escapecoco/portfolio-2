@@ -12,6 +12,16 @@
     transform: translateY(-30px);
   }
 }
+@-webkit-keyframes PositionAbsolute {
+  50% {
+    transform: translateY(50px);
+  }
+}
+@keyframes PositionAbsolute {
+  50% {
+    transform: translateY(50px);
+  }
+}
 *, ::before, ::after {
   margin: 0;
   padding: 0;
@@ -21,8 +31,7 @@
 
 body {
   width: 100%;
-  height: 100vh;
-  background-color: #222;
+  height: 100%;
 }
 
 ul li {
@@ -37,14 +46,10 @@ a {
 }
 
 .page {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  align-content: center;
-  flex-direction: column;
   position: relative;
   width: 100%;
   height: 100%;
+  overflow: hidden;
 }
 .page:after {
   content: "";
@@ -52,7 +57,7 @@ a {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   background: rgba(0, 0, 0, 0.4);
   z-index: 0;
 }
@@ -205,11 +210,8 @@ a {
 .page video {
   position: relative;
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   width: 100%;
-  height: 100%;
+  height: 100vh;
   -o-object-fit: cover;
      object-fit: cover;
 }
@@ -218,25 +220,9 @@ a {
   justify-content: center;
   align-items: center;
   align-content: center;
-  flex-direction: row;
+  flex-direction: column;
   width: 100%;
-  height: 100%;
-  /*
-  .sec-text{
-      &:before{
-          content: "";
-          position: absolute;
-          top: 0;
-          left: 0;
-          height: 100%;
-          width: 100%;
-          background: black;
-          border-left: 2px solid #4070F4;
-          animation: animate 4s steps(12) infinite;
-          z-index: 1;
-      }
-  }
-  */
+  height: 100vh;
 }
 .page .container .p-title {
   display: flex;
@@ -245,16 +231,10 @@ a {
   align-content: center;
   flex-direction: row;
   position: relative;
-  z-index: 2;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  align-content: center;
-  flex-direction: row;
   font-size: 7vw;
   font-weight: 700;
-  font-family: arial;
   color: white;
+  z-index: 2;
 }
 .page .container .p-title .dot {
   display: flex;
@@ -286,6 +266,156 @@ a {
   opacity: 0;
   transition: opacity 0.5s;
 }
+.page .container2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background: black;
+  overflow: hidden;
+}
+.page .container2:before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  width: 100%;
+  height: 30vh;
+  background-image: linear-gradient(#222, black);
+  overflow: hidden;
+}
+.page .container2 .blur-filter {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+}
+.page .container2 .blur div {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  transition: 1s all;
+}
+.page .container2 .blur div:nth-child(1) {
+  filter: blur(0px);
+}
+.page .container2 .blur div:nth-child(2) {
+  filter: blur(30px);
+}
+.page .container2 .blur div:nth-child(3) {
+  filter: blur(60px);
+}
+.page .container2 .blur div:nth-child(4) {
+  filter: blur(90px);
+}
+.page .container2 .blur div:nth-child(5) {
+  filter: blur(120px);
+}
+.page .container2 .blur:nth-child(2) div {
+  background: #FDB813;
+}
+.page .container2 .blur:nth-child(3) div {
+  background: #e5e5e5;
+}
+.page .container2 .blur:nth-child(4) div {
+  background: #8B7D82;
+}
+.page .container2 .blur:nth-child(5) div {
+  background: #0d7167;
+}
+.page .container2 .blur:nth-child(6) div {
+  background: #a1251b;
+}
+.page .container2 .blur:nth-child(7) div {
+  background: #bcafb2;
+}
+.page .container2 .blur:nth-child(8) div {
+  background: #ead6b8;
+}
+.page .container2 .blur:nth-child(9) div {
+  background: turquoise;
+}
+.page .container2 .blur:nth-child(10) div {
+  background: blue;
+}
+.page .container2 .bubble1 {
+  position: absolute;
+  top: auto;
+  right: -100px;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+}
+.page .container2 .bubble2 {
+  position: absolute;
+  top: auto;
+  right: 20vw;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+}
+.page .container2 .bubble3 {
+  position: absolute;
+  top: auto;
+  right: 30vw;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+.page .container2 .bubble4 {
+  position: absolute;
+  top: auto;
+  right: 40vw;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+.page .container2 .bubble5 {
+  position: absolute;
+  top: auto;
+  right: 50vw;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+.page .container2 .bubble6 {
+  position: absolute;
+  top: auto;
+  right: 60vw;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+.page .container2 .bubble7 {
+  position: absolute;
+  top: auto;
+  right: 70vw;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+.page .container2 .bubble8 {
+  position: absolute;
+  top: auto;
+  right: 80vw;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+.page .container2 .bubble9 {
+  position: absolute;
+  top: auto;
+  right: 90vw;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
 @media screen and (max-width: 768px) {
   .page .header .container-header {
     display: flex;
@@ -310,5 +440,80 @@ a {
   .page .header .container-header .mobile-nav {
     height: 100%;
     display: block;
+  }
+  .page .container2 {
+    height: 170vh;
+  }
+  .page .container2 .bubble1 {
+    position: absolute;
+    top: -100px;
+    right: auto;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+  }
+  .page .container2 .bubble2 {
+    position: absolute;
+    top: 230px;
+    right: auto;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+  }
+  .page .container2 .bubble3 {
+    position: absolute;
+    top: 330px;
+    right: auto;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+  }
+  .page .container2 .bubble4 {
+    position: absolute;
+    top: 430px;
+    right: auto;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+  }
+  .page .container2 .bubble5 {
+    position: absolute;
+    top: 530px;
+    right: auto;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+  }
+  .page .container2 .bubble6 {
+    position: absolute;
+    top: 630px;
+    right: auto;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+  }
+  .page .container2 .bubble7 {
+    position: absolute;
+    top: 730px;
+    right: auto;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+  }
+  .page .container2 .bubble8 {
+    position: absolute;
+    top: 830px;
+    right: auto;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+  }
+  .page .container2 .bubble9 {
+    position: absolute;
+    top: 930px;
+    right: auto;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
   }
 }/*# sourceMappingURL=INDEX-style.css.map */

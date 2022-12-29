@@ -20,7 +20,10 @@ setInterval(textLoad, 12000);
 
 
 window.addEventListener('load', () => {
+
+    setTimeout(() => {
+        document.querySelector('.astronaute').style.opacity = "1";
+        document.querySelector('.dot').style.display="none";
+    }, 1000);
     
-    document.querySelector('.astronaute').style.opacity = "1";
-    document.querySelector('.dot').style.display="none";
 })

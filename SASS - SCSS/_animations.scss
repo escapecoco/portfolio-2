@@ -3,3 +3,8 @@
         transform: translateY(-30px);
     }
 }
+@keyframes PositionAbsolute {
+    50%{
+        transform: translateY(50px);
+    }
+}

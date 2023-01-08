@@ -16,6 +16,9 @@
     box-sizing: border-box;
     font-family: 'Montserrat', sans-serif;
 }
+html{
+    scroll-behavior: smooth !important;
+}
 body {
     width: 100%;
     height: 100%;
@@ -28,13 +31,102 @@ margin: 0;
 }
 a{
     text-decoration: none;
-    color: black;
+    color: white;
 }
 .page{
     position: relative;
     width: 100%;
     height: 100%;
     overflow: hidden;
+    .left-part-slide{
+        @include FlexMid(column);
+        visibility: hidden;
+        align-items: flex-start;
+        width: 50%;
+        position: fixed;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        z-index: 2;
+        transition: transform .3s ease;
+        padding: 28px 40px;
+        backdrop-filter: blur(30px);
+        .cross2{
+            position: relative;
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            top: 20px;
+            right: 25px;
+            z-index: 10;
+            img{
+                @include Centreabsolute;
+                width: 20px;
+            }
+        }
+        ul{
+            padding-bottom: 40%;
+            font-size: 16px;
+            li{
+                position: relative;
+                padding: 15px 0px;
+                ::after{    
+                    position: absolute;
+                    content: "";
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                    width: 0%;
+                    height: 2px;
+                    margin-bottom: 2px;
+                    background: white;
+                    transition: all 0.4s ease;
+                }
+                a{
+                    color: white;
+                }
+                p{
+                    color: white;
+                }
+                /*
+                &:nth-of-type(4){ //For active thing
+                    a{
+                        color: white;
+                    }
+                    ::after{
+                        width: 100%;
+                    }
+                }
+                */
+                &:hover{
+                    ::after{
+                        width: 100%; 
+                    }
+                }
+            }
+        }
+        .contact-container{
+            @include FlexMid(row);
+            margin-left: 10px;
+            img{
+                width: 15px;
+                &:first-child{
+                    width: 10px;
+                }
+                &:nth-child(2){
+                    margin: 0px 20px;
+                }
+            }
+        }
+        .right{
+            padding-top: 10px;
+            p{
+                color: white;
+                font-size: 13px;
+                font-weight: 450;
+            }
+        }
+    } 
     &:after{
         content: "";
         position: absolute;
@@ -122,9 +214,9 @@ a{
                 position: relative;
                 @include FlexMid(row);
                 .btn-chat-js{
+                    @include FlexMid(row);
                     position: relative;
                     height: 40%;
-                    @include FlexMid(row);
                     font-size: 18px;
                     font-weight: 700;
                     box-shadow: 0px 0px 0px 2px white;
@@ -256,18 +348,6 @@ a{
         height: auto;
         background: black;
         overflow: hidden;
-        //padding: 8vw 13vw 5vw 13vw;
-        /*
-        &:before{
-            content: "";
-            position: absolute;
-            top: 0px;
-            width: 100%;
-            height: 25vh;
-            background-image: linear-gradient(black, #222);
-            overflow: hidden;
-        }
-        */
         .blur-filter{
             position: absolute;
             width: 100%;
@@ -275,154 +355,142 @@ a{
             z-index: 1;
             backdrop-filter: blur(10px);
         }
-        .blur{
-            div {
-                position: absolute;
-                width: 100%;
-                height: 100%;
-                border-radius: 50%;
-                //animation: PositionAbsolute 1s infinite;
-                transition: 1s all;
+        .solar-system{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            align-content: center;
+            flex-direction: row-reverse;
+            position: absolute;
+            top: 10%;
+            right: -100px;
+            width: 100%;
+            height: 100%;
+            .blur{
+                position: relative;
+                div {
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 50%;
+                    //animation: PositionAbsolute 1s infinite;
+                    transition: 1s all;
+                    &:nth-child(1) {
+                        filter: blur(0px);
+                    }
+                    &:nth-child(2) {
+                        filter: blur(30px);
+                    }
+                    &:nth-child(3) {
+                        filter: blur(60px);
+                    }
+                    &:nth-child(4) {
+                        filter: blur(90px);
+                    }
+                    &:nth-child(5) {
+                        filter: blur(120px);
+                    }
+                }
                 &:nth-child(1) {
-                    filter: blur(0px);
+                    //could've remove the div{} to ajust the background color but is no needed since .blur take the whole bubble
+                    div{
+                        background: #FDB813;
+                    }
                 }
                 &:nth-child(2) {
-                    filter: blur(30px);
+                    div{
+                        background: #883719;
+                    }
                 }
                 &:nth-child(3) {
-                    filter: blur(60px);
+                    div{
+                        background: #8B7D82;
+                    }
                 }
                 &:nth-child(4) {
-                    filter: blur(90px);
+                    div{
+                        background: #0d7167;
+                    }
                 }
                 &:nth-child(5) {
-                    filter: blur(120px);
+                    div{
+                        background: #a1251b;
+                    }
+                }
+                &:nth-child(6) {
+                    div{
+                        background: #bcafb2;
+                    }
+                }
+                &:nth-child(7) {
+                    div{
+                        background: #ead6b8;
+                    }
+                }
+                &:nth-child(8) {
+                    div{
+                        background: turquoise;
+                    }
+                }
+                &:nth-child(9) {
+                    div{
+                        background: blue;
+                    }
                 }
             }
-            &:nth-child(2) {
-                //could've remove the div{} to ajust the background color but is no needed since .blur take the whole bubble
-                div{
-                    background: #FDB813;
-                }
+    
+            .bubble1{
+                width: 300px;
+                height: 300px;
+                border-radius: 50%;
             }
-            &:nth-child(3) {
-                div{
-                    background: #883719;
-                }
+            .bubble2{
+                width: 80px;
+                height: 80px;
+                border-radius: 50%;
             }
-            &:nth-child(4) {
-                div{
-                    background: #8B7D82;
-                }
+            .bubble3{
+                width: 100px;
+                height: 100px;
+                border-radius: 50%;
             }
-            &:nth-child(5) {
-                div{
-                    background: #0d7167;
-                }
+            .bubble4{
+                width: 100px;
+                height: 100px;
+                border-radius: 50%;
             }
-            &:nth-child(6) {
-                div{
-                    background: #a1251b;
-                }
+            .bubble5{
+                width: 100px;
+                height: 100px;
+                border-radius: 50%;
             }
-            &:nth-child(7) {
-                div{
-                    background: #bcafb2;
-                }
+            .bubble6{
+                width: 100px;
+                height: 100px;
+                border-radius: 50%;
             }
-            &:nth-child(8) {
-                div{
-                    background: #ead6b8;
-                }
+            .bubble7{
+                width: 100px;
+                height: 100px;
+                border-radius: 50%;
             }
-            &:nth-child(9) {
-                div{
-                    background: turquoise;
-                }
+            .bubble8{
+                width: 100px;
+                height: 100px;
+                border-radius: 50%;
             }
-            &:nth-child(10) {
-                div{
-                    background: blue;
-                }
+            .bubble9{
+                width: 100px;
+                height: 100px;
+                border-radius: 50%;
             }
-        }
-        .bubble1{
-            position: absolute;
-            top: auto;
-            right: -100px;
-            width: 300px;
-            height: 300px;
-            border-radius: 50%;
-        }
-        .bubble2{
-            position: absolute;
-            top: auto;
-            right: 20vw;
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-        }
-        .bubble3{
-            position: absolute;
-            top: auto;
-            right: 30vw;
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-        }
-        .bubble4{
-            position: absolute;
-            top: auto;
-            right: 40vw;
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-        }
-        .bubble5{
-            position: absolute;
-            top: auto;
-            right: 50vw;
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-        }
-        .bubble6{
-            position: absolute;
-            top: auto;
-            right: 60vw;
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-        }
-        .bubble7{
-            position: absolute;
-            top: auto;
-            right: 70vw;
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-        }
-        .bubble8{
-            position: absolute;
-            top: auto;
-            right: 80vw;
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-        }
-        .bubble9{
-            position: absolute;
-            top: auto;
-            right: 90vw;
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
         }
         .title1{
             font-family: Expletus Sans, sans-serif;
             font-size: 42px;
             color: white;
             z-index: 1;
+            margin-top: 3vw;
             margin-bottom: 3vw;
         }
         .mini-container{
@@ -461,7 +529,6 @@ a{
                     border-style: outset;
                     font-family: Arial;
                     backdrop-filter: blur(10px);
-    
                 }
                 h2{
                     font-size: 16px;
@@ -523,12 +590,6 @@ a{
                     transition: 2s backdrop-filter;
                     z-index: 1;
                     h2{
-                        /*
-                        position: absolute;
-                        top: 10px;
-                        left: 50%;
-                        transform: translate(-50%, 10px);
-                        */
                         font-family: Expletus Sans, sans-serif;
                         text-align: center;
                         margin-top: 1vw;
@@ -590,29 +651,300 @@ a{
         }
     }
 
+    .gradient-transition3{
+        width: 100%;
+        height: 15vh;
+        background-image: linear-gradient(#222, black);
+    }
+
+    .container4{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        flex-direction: column;
+        position: relative;
+        width: 100%;
+        height: auto;
+        background: black;
+        overflow: hidden;
+        .blur-filter{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            backdrop-filter: blur(10px);
+        }
+        .solar-system{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            align-content: center;
+            flex-direction: row;
+            position: absolute;
+            top: 10%;
+            left: -100px;
+            width: 100%;
+            height: 100%;
+            .blur{
+                position: relative;
+                div {
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 50%;
+                    transition: 1s all;
+                    &:nth-child(1) {
+                        filter: blur(0px);
+                    }
+                    &:nth-child(2) {
+                        filter: blur(30px);
+                    }
+                    &:nth-child(3) {
+                        filter: blur(60px);
+                    }
+                    &:nth-child(4) {
+                        filter: blur(90px);
+                    }
+                    &:nth-child(5) {
+                        filter: blur(120px);
+                    }
+                }
+                &:nth-child(1) {
+                    //could've remove the div{} to ajust the background color but is no needed since .blur take the whole bubble
+                    div{
+                        background: #FDB813;
+                    }
+                }
+                &:nth-child(2) {
+                    div{
+                        background: #883719;
+                    }
+                }
+                &:nth-child(3) {
+                    div{
+                        background: #8B7D82;
+                    }
+                }
+                &:nth-child(4) {
+                    div{
+                        background: #0d7167;
+                    }
+                }
+                &:nth-child(5) {
+                    div{
+                        background: #a1251b;
+                    }
+                }
+                &:nth-child(6) {
+                    div{
+                        background: #bcafb2;
+                    }
+                }
+                &:nth-child(7) {
+                    div{
+                        background: #ead6b8;
+                    }
+                }
+                &:nth-child(8) {
+                    div{
+                        background: turquoise;
+                    }
+                }
+                &:nth-child(9) {
+                    div{
+                        background: blue;
+                    }
+                }
+            }
+            .bubble1{
+                width: 300px;
+                height: 300px;
+                border-radius: 50%;
+            }
+            .bubble2{
+                width: 80px;
+                height: 80px;
+                border-radius: 50%;
+            }
+            .bubble3{
+                width: 100px;
+                height: 100px;
+                border-radius: 50%;
+            }
+            .bubble4{
+                width: 100px;
+                height: 100px;
+                border-radius: 50%;
+            }
+            .bubble5{
+                width: 100px;
+                height: 100px;
+                border-radius: 50%;
+            }
+            .bubble6{
+                width: 100px;
+                height: 100px;
+                border-radius: 50%;
+            }
+            .bubble7{
+                width: 100px;
+                height: 100px;
+                border-radius: 50%;
+            }
+            .bubble8{
+                width: 100px;
+                height: 100px;
+                border-radius: 50%;
+            }
+            .bubble9{
+                width: 100px;
+                height: 100px;
+                border-radius: 50%;
+            }
+        }
+
+        h1{
+            font-family: Expletus Sans, sans-serif;
+            font-size: 42px;
+            margin-top: 3vw;
+            margin-bottom: 3vw;
+            color: white;
+            z-index: 1;
+        }
+        .mini-container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            align-content: center;
+            flex-direction: column;
+            width: auto;
+            height: auto;
+            backdrop-filter: blur(30px);
+            padding: 40px;
+            margin-bottom: 5vw;
+            z-index: 1;
+            .box{
+                display: flex;
+                justify-content: center;
+                align-items: flex-start;
+                align-content: center;
+                flex-direction: column;
+                width: 100%;
+                label{
+                    font-family: Expletus Sans, sans-serif;
+                    font-size: 22px;
+                    margin: 1vw 0px 0.5vw 0.5vw;
+                    color: white;
+                }
+                input{
+                    position: relative;
+                    border: 0;
+                    outline: 0;
+                    width: 300px;
+                    padding: 12px 12px 12px 7px;
+                    font-size: 16px;
+                    &:focus-visible{
+                        border-bottom: 3px solid black;
+                    }
+                    &:after{
+                        content: "";
+                        position: absolute;
+                        bottom: 1px;
+                        width: 100%;
+                        height: 1px;
+                        background: black;
+                    }
+                }
+                textarea{
+                    border: 0;
+                    outline: 0;
+                    height: 150px;
+                    width: 100%;
+                    padding: 12px 12px 12px 7px;
+                    font-size: 16px;
+                    resize: vertical;
+                }
+            }
+            button{
+                cursor: pointer;
+                border: none;
+                outline: none;
+                box-shadow: 0px 0px 0px 3px white;
+                background: transparent;
+                color: white;
+                padding: 10px 30px;
+                margin-top: 20px;
+            }
+        }
+    }
+
+    .gradient-transition4{
+        width: 100%;
+        height: 25vh;
+        background-image: linear-gradient(black, #111);
+    }
+
+    .footer{
+        @include FlexMid(row);
+        align-items: flex-start;
+        position: relative;
+        width: 100%;
+        height: auto;
+        background: #111;
+        overflow: hidden;
+        padding: 5vw 0 5vw 0;
+        .box{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            align-content: center;
+            flex-direction: column;
+            color: white;
+            width: 100%;
+            height: 100%;
+            .box-position{
+                display: flex;
+                justify-content: flex-start;
+                align-items: flex-start;
+                align-content: center;
+                flex-direction: column;
+                height: 70%;
+                h1{
+                    margin-bottom: 2vw;
+                }
+                li{
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: center;
+                    align-content: center;
+                    flex-direction: row;
+                    margin-bottom: 1vw;
+                    a{
+                        display: flex;
+                        justify-content: flex-start;
+                        align-items: center;
+                        align-content: center;
+                        flex-direction: row;
+                    }
+                    img{
+                        width: 30px;
+                        margin-right: 7px;
+                    }
+                    p{
+                        font-size: 18px;
+                    }
+                }
+            }
+        }
+    }
+
 
 
 
 
     //4k
     @media screen and (max-width: 2560px){
-        /*
-        .container2{
-            .box{
-                &:nth-child(1), &:nth-child(2), &:nth-child(3), &:nth-child(4), &:nth-child(5){
-                    &:after{
-                        content: "";
-                        position: absolute;
-                        top: 50%;
-                        left: 100%;
-                        width: 100%;
-                        height: 4px;
-                        background: white;
-                    }
-                }
-            }
-        }
-        */
     }
 
 
@@ -648,6 +980,10 @@ a{
     @media screen and (min-width: 770px) {
     }
     @media screen and (max-width: 768px) {
+        .left-part-slide{
+            visibility: visible;
+            transform: translateX(100%);
+        }
         .header{
             .container-header{
                 display: flex;
@@ -683,23 +1019,6 @@ a{
                 }
             }
         }
-        .container3{
-            height: 170vh;
-            h1{
-                margin-bottom: 0vw;
-            }
-            .threebox-container{
-                display: flex;
-                justify-content: space-evenly;
-                align-items: center;
-                align-content: center;
-                flex-direction: column;
-                .box{
-                    width: 300px;
-                    height: 200px;
-                }
-            }
-        }
         .container2{
             .box{
                 &:nth-child(1), &:nth-child(3), &:nth-child(5){
@@ -720,82 +1039,52 @@ a{
                 }
             }
         }
+        .container3{
+            height: 170vh;
+            h1{
+                margin-bottom: 0vw;
+            }
+            .threebox-container{
+                display: flex;
+                justify-content: space-evenly;
+                align-items: center;
+                align-content: center;
+                flex-direction: column;
+                .box{
+                    width: 300px;
+                    height: 200px;
+                }
+            }
+        }
+        .container4{
+            .solar-system{
+                justify-content: space-evenly;
+                flex-direction: column-reverse;
+                left: 0;
+            }
+        }
+        .footer{
+            flex-direction: column;
+            align-items: center;
+            gap: 5vw;
+            .box{
+                .box-position{
+                    width: 50%;
+                }
+            }
+        }
     }
 
     //phones
     @media screen and (max-width: 575px) {
+        .left-part-slide{
+            width: 100%;
+        }
         .container2{
-            .bubble1{
-                position: absolute;
-                top: -100px;
-                right: auto;
-                width: 300px;
-                height: 300px;
-                border-radius: 50%;
-            }
-            .bubble2{
-                position: absolute;
-                top: 230px;
-                right: auto;
-                width: 80px;
-                height: 80px;
-                border-radius: 50%;
-            }
-            .bubble3{
-                position: absolute;
-                top: 330px;
-                right: auto;
-                width: 100px;
-                height: 100px;
-                border-radius: 50%;
-            }
-            .bubble4{
-                position: absolute;
-                top: 430px;
-                right: auto;
-                width: 100px;
-                height: 100px;
-                border-radius: 50%;
-            }
-            .bubble5{
-                position: absolute;
-                top: 530px;
-                right: auto;
-                width: 100px;
-                height: 100px;
-                border-radius: 50%;
-            }
-            .bubble6{
-                position: absolute;
-                top: 630px;
-                right: auto;
-                width: 100px;
-                height: 100px;
-                border-radius: 50%;
-            }
-            .bubble7{
-                position: absolute;
-                top: 730px;
-                right: auto;
-                width: 100px;
-                height: 100px;
-                border-radius: 50%;
-            }
-            .bubble8{
-                position: absolute;
-                top: 830px;
-                right: auto;
-                width: 100px;
-                height: 100px;
-                border-radius: 50%;
-            }
-            .bubble9{
-                position: absolute;
-                top: 930px;
-                right: auto;
-                width: 100px;
-                height: 100px;
-                border-radius: 50%;
+            .solar-system{
+                justify-content: space-evenly;
+                flex-direction: column;
+                right: 0;
             }
             .box{
                 &:nth-child(1), &:nth-child(2), &:nth-child(3), &:nth-child(4), &:nth-child(5){

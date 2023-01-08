@@ -1,3 +1,37 @@
+console.log('https://github.com/escapecoco')
+
+const btnA = document.querySelector('.mobile-nav');
+const btnB = document.querySelector('.cross2');
+const slide = document.querySelector('.left-part-slide');
+const filterappear = document.querySelector('.filter-black');
+
+let togglebtn;
+
+btnA.addEventListener('click', sliderightmobile);
+btnB.addEventListener('click', crossclose);
+
+
+function sliderightmobile(){
+
+    if(!togglebtn) {
+        slide.style.setProperty("transform", "translate(0)", "important");
+        //slide.style.transform = "translate(0)"; Si sa ne marche pas
+        filterappear.style.background = "#00000060";
+        return;
+    }
+};
+
+function crossclose(){
+
+    if(!togglebtn) {
+        slide.style.transform = "translate(100%)";
+        filterappear.style.background = "#00000000";
+        return;
+    }
+}
+
+//--------------------------------------------------------------------------------------
+
 window.addEventListener('load', () => {
 
     setTimeout(() => {
@@ -21,10 +55,6 @@ let btn3 = document.querySelector('.btn-animation3');
 let p3 = document.querySelector('.btn-animation3 p');
 let bar3 = document.querySelectorAll('.btn-animation3 .bar3');
 var i;
-
-console.log(document.querySelector('.threebox-container :nth-child(2) :nth-child(1)'));
-console.log(document.querySelector('.btn-animation .bar1'));
-
 
 btn1.addEventListener('click', () => {
     btn1.style.animation="jsanimation1 .5s .3s forwards";

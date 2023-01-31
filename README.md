@@ -1,5 +1,8 @@
-# Concours 2 "Portfolio" Le Repaire du Web
+# Portfolio 2 💼
 
-Projet réalisé avec HTML, SCSS et JAVASCRIPT
+Project made with HTML5, SCSS/CSS3 and JAVASCRIPT
+Projet réalisé avec HTML, SCSS/CSS3 et JAVASCRIPT
 
-Created with 💖
+Designed and Made with 💖
+
+*(Participation for the contest of Le Repaire du Web)*
